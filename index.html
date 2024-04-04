@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal List</title>
+    <style>
+        /* Style untuk tampilan yang lebih menarik (opsional) */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Animal List</h1>
+        <div id="animalList">
+            <!-- Tempat untuk menampilkan daftar hewan -->
+        </div>
+        <button id="addAnimalBtn">Add Animal</button>
+        <button id="resetAnimalBtn">Reset Animal</button>
+    </div>
+
+    <script>
+        // Ambil elemen tombol dan daftar hewan dari DOM
+        const addAnimalBtn = document.getElementById("addAnimalBtn");
+        const resetAnimalBtn = document.getElementById("resetAnimalBtn");
+        const animalList = document.getElementById("animalList");
+
+        // Fungsi untuk menambahkan hewan ke dalam daftar
+        function addAnimal() {
+            const animal = prompt("Enter the name of the animal:");
+            if (animal) {
+                const listItem = document.createElement("div");
+                listItem.textContent = animal;
+                animalList.appendChild(listItem);
+            }
+        }
+
+        // Fungsi untuk menghapus semua hewan dari daftar
+        function resetAnimal() {
+            animalList.innerHTML = ""; // Menghapus semua elemen di dalam animalList
+        }
+
+        // Tambahkan event listener untuk tombol "Add Animal"
+        addAnimalBtn.addEventListener("click", addAnimal);
+
+        // Tambahkan event listener untuk tombol "Reset Animal"
+        resetAnimalBtn.addEventListener("click", resetAnimal);
+    </script>
+</body>
+</html>
